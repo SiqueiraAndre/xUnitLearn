@@ -7,32 +7,32 @@ namespace JornadaMilhas.Test
         [Fact]
         public void TestandoOfertaValida()
         {
-            //cen·rio - arrange
+            //cen√°rio - arrange
             Rota rota = new Rota("OrigemTeste", "DestinoTeste");
             Periodo periodo = new Periodo(new DateTime(2024, 10, 31), new DateTime(2024, 11, 10));
             double preco = 100.0;
             var validacao = true;
 
-            //aÁ„o - act
+            //a√ß√£o - act
             OfertaViagem oferta = new OfertaViagem(rota, periodo, preco);
 
-            //validaÁ„o - assert
+            //valida√ß√£o - assert
             Assert.Equal(validacao, oferta.EhValido);
         }
 
         [Fact]
         public void TestandoOfertaComRotaNula()
         {
-            //cen·rio - arrange
-            Rota rota = null;
+            //cen√°rio - arrange
+            Rota rota = null!;
             Periodo periodo = new Periodo(new DateTime(2024, 10, 31), new DateTime(2024, 11, 10));
             double preco = 100.0;
 
-            //aÁ„o - act
+            //a√ß√£o - act
             OfertaViagem oferta = new OfertaViagem(rota, periodo, preco);
 
-            //validaÁ„o - assert
-            Assert.Contains("A oferta de viagem n„o possui rota ou perÌodo v·lidos.", oferta.Erros.Sumario);
+            //valida√ß√£o - assert
+            Assert.Contains("A oferta de viagem n√£o possui rota ou per√≠odo v√°lidos.", oferta.Erros.Sumario);
             Assert.False(oferta.EhValido);
         }
 
